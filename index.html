@@ -7,13 +7,14 @@
   <meta name="description" content="FixLab übernimmt, wenn Softwareprojekte feststecken. Analyse, Stabilisierung, Lieferfähigkeit und sicherheitsrelevante Risiken." />
   <style>
     :root {
-      --bg: #080808;
-      --panel: #121212;
-      --panel-soft: #171717;
-      --text: #f5f5f5;
-      --muted: #b9b9b9;
-      --orange: #ff7a00;
-      --line: #2a2a2a;
+      --bg: #0b0d0f;
+      --panel: #14181c;
+      --panel-soft: #191f24;
+      --text: #f4f1ec;
+      --muted: #b8b1a8;
+      --accent: #d9822b;
+      --accent-soft: rgba(217, 130, 43, 0.14);
+      --line: rgba(244, 241, 236, 0.11);
       --max: 1080px;
     }
 
@@ -26,15 +27,13 @@
     body {
       margin: 0;
       font-family: Arial, Helvetica, sans-serif;
-      background:
-        radial-gradient(circle at 85% 10%, rgba(255, 122, 0, 0.18), transparent 28%),
-        linear-gradient(135deg, #050505 0%, #0b0b0b 55%, #111 100%);
+      background: var(--bg);
       color: var(--text);
       line-height: 1.65;
     }
 
     a {
-      color: var(--orange);
+      color: var(--accent);
       text-decoration: none;
     }
 
@@ -48,10 +47,10 @@
     }
 
     header {
-      padding: 28px 0;
-      border-bottom: 1px solid rgba(255,255,255,0.08);
-      background: rgba(0,0,0,0.35);
-      backdrop-filter: blur(12px);
+      padding: 22px 0;
+      border-bottom: 1px solid var(--line);
+      background: rgba(11, 13, 15, 0.92);
+      backdrop-filter: blur(10px);
       position: sticky;
       top: 0;
       z-index: 10;
@@ -76,15 +75,15 @@
     .mark {
       width: 42px;
       height: 42px;
-      border: 2px solid #fff;
+      border: 1px solid rgba(244, 241, 236, 0.78);
       border-radius: 8px;
       display: grid;
       place-items: center;
-      color: var(--orange);
+      color: var(--accent);
       font-size: 26px;
       font-weight: 800;
       line-height: 1;
-      box-shadow: 0 0 18px rgba(255,122,0,0.16);
+      background: rgba(244, 241, 236, 0.03);
     }
 
     .brand-name {
@@ -92,7 +91,7 @@
     }
 
     .brand-name span {
-      color: var(--orange);
+      color: var(--accent);
     }
 
     nav {
@@ -123,9 +122,9 @@
     }
 
     .eyebrow {
-      color: var(--orange);
+      color: var(--accent);
       text-transform: uppercase;
-      letter-spacing: 0.22em;
+      letter-spacing: 0.16em;
       font-size: 13px;
       font-weight: 700;
       margin-bottom: 18px;
@@ -135,16 +134,16 @@
       font-size: clamp(44px, 7vw, 86px);
       line-height: 0.98;
       margin: 0 0 22px;
-      letter-spacing: -0.06em;
+      letter-spacing: 0;
     }
 
     h1 span {
-      color: var(--orange);
+      color: var(--accent);
     }
 
     .lead {
       font-size: clamp(20px, 2.3vw, 28px);
-      color: #e8e8e8;
+      color: #e9e3dc;
       max-width: 780px;
       margin: 0 0 28px;
       line-height: 1.35;
@@ -164,6 +163,10 @@
       margin-top: 32px;
     }
 
+    .actions.center {
+      justify-content: center;
+    }
+
     .btn {
       display: inline-flex;
       align-items: center;
@@ -171,15 +174,17 @@
       padding: 13px 18px;
       border-radius: 999px;
       font-weight: 700;
-      border: 1px solid rgba(255,255,255,0.16);
-      background: var(--orange);
-      color: #111;
+      border: 1px solid rgba(217, 130, 43, 0.55);
+      background: var(--accent);
+      color: #111416;
       min-width: 168px;
+      transition: transform 160ms ease, background 160ms ease, border-color 160ms ease;
     }
 
     .btn.secondary {
-      background: transparent;
+      background: rgba(244, 241, 236, 0.03);
       color: var(--text);
+      border-color: var(--line);
     }
 
     .btn:hover {
@@ -188,23 +193,20 @@
     }
 
     .hero-card {
-      background:
-        linear-gradient(145deg, rgba(255,255,255,0.07), rgba(255,255,255,0.02)),
-        var(--panel);
-      border: 1px solid rgba(255,255,255,0.1);
-      border-radius: 28px;
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 8px;
       padding: 34px;
-      box-shadow: 0 24px 80px rgba(0,0,0,0.45);
     }
 
     .big-mark {
       width: 108px;
       height: 108px;
-      border: 4px solid #fff;
-      border-radius: 24px;
+      border: 2px solid rgba(244, 241, 236, 0.8);
+      border-radius: 8px;
       display: grid;
       place-items: center;
-      color: var(--orange);
+      color: var(--accent);
       font-size: 70px;
       font-weight: 900;
       margin-bottom: 26px;
@@ -221,19 +223,19 @@
 
     .keywords span::after {
       content: ".";
-      color: var(--orange);
+      color: var(--accent);
       margin-left: 2px;
     }
 
     section {
       padding: 70px 0;
-      border-top: 1px solid rgba(255,255,255,0.08);
+      border-top: 1px solid var(--line);
     }
 
     h2 {
       font-size: clamp(30px, 4vw, 46px);
       line-height: 1.1;
-      letter-spacing: -0.035em;
+      letter-spacing: 0;
       margin: 0 0 22px;
     }
 
@@ -262,9 +264,9 @@
     }
 
     .card {
-      background: rgba(18,18,18,0.86);
-      border: 1px solid rgba(255,255,255,0.09);
-      border-radius: 22px;
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 8px;
       padding: 24px;
       min-height: 100%;
     }
@@ -279,7 +281,7 @@
     }
 
     .accent {
-      border-left: 4px solid var(--orange);
+      border-left: 4px solid var(--accent);
     }
 
     ul {
@@ -303,9 +305,9 @@
       grid-template-columns: 54px 1fr;
       gap: 18px;
       align-items: start;
-      background: rgba(18,18,18,0.82);
-      border: 1px solid rgba(255,255,255,0.09);
-      border-radius: 20px;
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 8px;
       padding: 20px;
     }
 
@@ -316,18 +318,16 @@
       border-radius: 50%;
       display: grid;
       place-items: center;
-      background: rgba(255,122,0,0.14);
-      color: var(--orange);
+      background: var(--accent-soft);
+      color: var(--accent);
       font-weight: 800;
-      border: 1px solid rgba(255,122,0,0.4);
+      border: 1px solid rgba(217, 130, 43, 0.35);
     }
 
     .offer {
-      background:
-        linear-gradient(135deg, rgba(255,122,0,0.12), rgba(255,255,255,0.03)),
-        var(--panel);
-      border: 1px solid rgba(255,122,0,0.22);
-      border-radius: 28px;
+      background: var(--panel-soft);
+      border: 1px solid rgba(217, 130, 43, 0.26);
+      border-radius: 8px;
       padding: 34px;
     }
 
@@ -348,8 +348,8 @@
     }
 
     footer {
-      border-top: 1px solid rgba(255,255,255,0.08);
-      color: #777;
+      border-top: 1px solid var(--line);
+      color: #8d867e;
       padding: 28px 0;
       font-size: 14px;
     }
@@ -378,14 +378,25 @@
         grid-template-columns: 1fr;
       }
 
-      .hero-card {
-        order: -1;
-      }
-
       .big-mark {
         width: 82px;
         height: 82px;
         font-size: 52px;
+      }
+    }
+
+    @media (max-width: 520px) {
+      .wrap {
+        width: min(var(--max), calc(100% - 28px));
+      }
+
+      .actions {
+        width: 100%;
+      }
+
+      .btn {
+        width: 100%;
+        min-width: 0;
       }
     }
   </style>
@@ -559,7 +570,7 @@
         <p class="section-intro">
           In einem kurzen Erstgespräch klären wir, ob ein Initial Assessment sinnvoll ist.
         </p>
-        <div class="actions" style="justify-content:center">
+        <div class="actions center">
           <a class="btn" href="mailto:info@fixlab-it.de?subject=FixLab%20Erstgespr%C3%A4ch">Per E-Mail anfragen</a>
           <a class="btn secondary" href="https://www.linkedin.com/in/andriy-martishov" target="_blank" rel="noopener">LinkedIn Profil</a>
         </div>
